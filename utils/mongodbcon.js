@@ -1,7 +1,7 @@
 import {MongoClient} from 'mongodb';
 
-let uri =process.env.NEXT_PUBLIC_MONGODB_URI;
-let dbname = process.env.NEXT_PUBLIC_MONGODB_DB;
+let uri ='mongodb+srv://aula_mongo:dida1410@cluster0.egmpn.mongodb.net/testeapi?retryWrites=true&w=majority';
+let dbname ='testeapi';
 
 let cachedClient = null;
 let cachedDb = null; 
