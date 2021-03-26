@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import axios from 'axios';
+//import axios from 'axios';
 
 function Users({data}){
    const [users, setusers] = useState([]);
@@ -37,8 +37,8 @@ function Users({data}){
 
 export async function getServerSideProps(context) {
 
-    const response = await axios.get('http://localhost:3000/api/retorno');
-    const data = await response.data;
+    const response = await fetch('http://localhost:3000/api/retorno');
+    const data = await response.json();
     if(!data){
         return {
             notFound: true,
