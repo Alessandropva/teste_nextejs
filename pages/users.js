@@ -26,27 +26,11 @@ function Users({data}){
            <p>{carro}</p>
 
 
-            <ul>
-            {data.map((item,ind)=>{
-               return <li key={ind}>{ind} nome:{item.name}</li>
-            })}
-            </ul>
+          
         </div>
     )
 }
 
-export async function getServerSideProps(context) {
 
-    const response = await fetch('http://localhost:3000/api/retorno');
-    const data = await response.json();
-    if(!data){
-        return {
-            notFound: true,
-          }
-    }
-    return {
-      props: {data}, // will be passed to the page component as props
-    }
-  }
 
 export default Users;
