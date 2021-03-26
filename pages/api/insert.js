@@ -1,17 +1,18 @@
 import {connectToDatebase} from '../../utils/mongodbcon'
-const handler = async (req, res)=>{
+
+const inserir = async (req, res)=>{
     try {
         
         const {method} = req;
 
         switch (method) {
-            case 'GET':
+            case 'POST':
+              let data = req.body;
               const {db} = await connectToDatebase();
               const colection = await db.collection('user');
-
-              const data = await colection.find().toArray();
-              res.status(200).json(data);
-               
+              
+               await colection.insertOne(data);
+               res.status(200).json({ok: true});
                 break;
         
             default:
@@ -26,4 +27,4 @@ const handler = async (req, res)=>{
 
 }
 
-export default handler;
+export default inserir;
