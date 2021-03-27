@@ -15,7 +15,7 @@ if(!dbname){
       
     export  async function connectToDatebase(){
        if(cachedClient && cachedDb){
-           return {client: cachedClient, db: cachedClient}
+           return {client: cachedClient, db: cachedDb}
        }
    
        const client = await MongoClient.connect(uri,
